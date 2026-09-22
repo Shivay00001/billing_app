@@ -191,6 +191,7 @@ class LicenseManager:
         
         # Check trial
         license_data = self._get_license_data()
+        if self._check_trial_exhausted(license_data):
             return False, "Trial Limit Reached (10 Invoices). Purchase License."
             
         return True, ""
