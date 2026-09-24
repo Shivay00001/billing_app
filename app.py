@@ -1,6 +1,5 @@
 import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
-from ttkbootstrap.toast import ToastNotification
 from tkinter import messagebox
 import database
 import billing
@@ -254,11 +253,7 @@ class BillingApp(ttk.Window):
                           (name, price, cat))
             conn.commit()
             
-        ToastNotification(
-            title="Success",
-            message=f"Added {name}",
-            duration=3000,
-        ).show_toast()
+        messagebox.showinfo("Success", f"Added {name}")
         
         self.prod_name_var.set("")
         self.prod_price_var.set(0.0)
